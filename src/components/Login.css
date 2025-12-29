@@ -1,0 +1,104 @@
+/* =========================
+   LOGIN – ESTILOS AISLADOS
+========================= */
+
+.login-container {
+    min-height: 100vh;
+    width: 100%;
+    background: linear-gradient(135deg, #1e2a38, #2e4a78);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-card {
+    background-color: #ffffff;
+    padding: 2.5rem 2rem;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 380px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-card .header {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #1e2a38;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.login-card .logo {
+    width: 90px;
+    height: auto;
+    margin-bottom: 1.5rem;
+}
+
+.login-card input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.login-card input:focus {
+    border-color: #2e4a78;
+    box-shadow: 0 0 0 2px rgba(46, 74, 120, 0.2);
+}
+
+.login-card button {
+    width: 100%;
+    padding: 0.8rem;
+    margin-top: 0.5rem;
+    border-radius: 10px;
+    border: none;
+    background-color: #ff7f50;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.login-card button:hover {
+    background-color: #ff6a3c;
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   RESPONSIVE LOGIN
+========================= */
+
+@media (max-width: 480px) {
+    .login-card {
+        padding: 2rem 1.5rem;
+        border-radius: 12px;
+    }
+
+    .login-card .header {
+        font-size: 1.25rem;
+    }
+
+    .login-card .logo {
+        width: 70px;
+        margin-bottom: 1rem;
+    }
+
+    .login-card input {
+        font-size: 1rem;
+        padding: 0.85rem 1rem;
+    }
+
+    .login-card button {
+        font-size: 1.05rem;
+        padding: 0.9rem;
+    }
+}
