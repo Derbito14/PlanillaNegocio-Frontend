@@ -148,10 +148,6 @@ function Dashboard() {
         acc.ventaEfectivo += Number(d.ventaEfectivo || 0);
         acc.debito += Number(d.debito || 0);
         acc.transferencias += Number(d.transferencias || 0);
-        acc.agua += Number(d.agua || 0);
-        acc.alquiler += Number(d.alquiler || 0);
-        acc.sueldos += Number(d.sueldos || 0);
-        acc.varios += Number(d.varios || 0);
         acc.provEfectivo += Number(d.proveedoresEfectivo || 0);
         acc.provTransferencia += Number(d.proveedoresTransferencia || 0);
         acc.ventaTotal += Number(d.ventaTotal || 0);
@@ -162,10 +158,6 @@ function Dashboard() {
         ventaEfectivo: 0,
         debito: 0,
         transferencias: 0,
-        agua: 0,
-        alquiler: 0,
-        sueldos: 0,
-        varios: 0,
         provEfectivo: 0,
         provTransferencia: 0,
         ventaTotal: 0
@@ -300,10 +292,6 @@ function Dashboard() {
               <th>Venta Efectivo</th>
               <th>Débito</th>
               <th>Transferencias</th>
-              <th>Agua</th>
-              <th>Alquiler</th>
-              <th>Sueldos</th>
-              <th>Varios</th>
               <th>Proveedores efectivo</th>
               <th>Proveedores transferencia</th>
               <th>Venta Total</th>
@@ -314,7 +302,7 @@ function Dashboard() {
           <tbody>
             {datos.length === 0 && (
               <tr>
-                <td colSpan="13" className="text-center">No hay datos</td>
+                <td colSpan="9" className="text-center">No hay datos</td>
               </tr>
             )}
 
@@ -325,10 +313,6 @@ function Dashboard() {
                 <td>{formatoPesos(d.ventaEfectivo)}</td>
                 <td>{formatoPesos(d.debito)}</td>
                 <td>{formatoPesos(d.transferencias)}</td>
-                <td>{formatoPesos(d.agua)}</td>
-                <td>{formatoPesos(d.alquiler)}</td>
-                <td>{formatoPesos(d.sueldos)}</td>
-                <td>{formatoPesos(d.varios)}</td>
                 <td>{formatoPesos(d.proveedoresEfectivo)}</td>
                 <td>{formatoPesos(d.proveedoresTransferencia)}</td>
                 <td>{formatoPesos(d.ventaTotal)}</td>
@@ -345,10 +329,6 @@ function Dashboard() {
                 <td>{formatoPesos(totales.ventaEfectivo)}</td>
                 <td>{formatoPesos(totales.debito)}</td>
                 <td>{formatoPesos(totales.transferencias)}</td>
-                <td>{formatoPesos(totales.agua)}</td>
-                <td>{formatoPesos(totales.alquiler)}</td>
-                <td>{formatoPesos(totales.sueldos)}</td>
-                <td>{formatoPesos(totales.varios)}</td>
                 <td>{formatoPesos(totales.provEfectivo)}</td>
                 <td>{formatoPesos(totales.provTransferencia)}</td>
                 <td>{formatoPesos(totales.ventaTotal)}</td>
