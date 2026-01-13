@@ -10,10 +10,6 @@ function Ventas() {
   const [caja, setCaja] = useState('');
   const [debito, setDebito] = useState('');
   const [transferencias, setTransferencias] = useState('');
-  const [agua, setAgua] = useState('');
-  const [alquiler, setAlquiler] = useState('');
-  const [sueldos, setSueldos] = useState('');
-  const [varios, setVarios] = useState('');
   const [mensaje, setMensaje] = useState('');
 
   const handleSubmit = async (e) => {
@@ -27,11 +23,7 @@ function Ventas() {
         fecha: fechaArgentina,
         caja: Number(caja),
         debito: Number(debito),
-        transferencias: Number(transferencias),
-        agua: Number(agua),
-        alquiler: Number(alquiler),
-        sueldos: Number(sueldos),
-        varios: Number(varios)
+        transferencias: Number(transferencias)
       }, {
         headers: { Authorization: `Bearer ${token}` }
       });
@@ -39,7 +31,6 @@ function Ventas() {
 
       setMensaje('Venta guardada correctamente!');
       setCaja(''); setDebito(''); setTransferencias('');
-      setAgua(''); setAlquiler(''); setSueldos(''); setVarios('');
     } catch (err) {
       console.error(err);
       setMensaje('Error al guardar la venta');
@@ -73,27 +64,7 @@ function Ventas() {
           <input type="number" value={transferencias} onChange={e => setTransferencias(e.target.value)} required />
         </div>
 
-        <div>
-          <label>Agua:</label>
-          <input type="number" value={agua} onChange={e => setAgua(e.target.value)} required />
-        </div>
-
-        <div>
-          <label>Alquiler:</label>
-          <input type="number" value={alquiler} onChange={e => setAlquiler(e.target.value)} required />
-        </div>
-
-        <div>
-          <label>Sueldos:</label>
-          <input type="number" value={sueldos} onChange={e => setSueldos(e.target.value)} required />
-        </div>
-
-        <div>
-          <label>Varios:</label>
-          <input type="number" value={varios} onChange={e => setVarios(e.target.value)} required />
-        </div>
-
-        <button type="submit" className="btn btn-orange">Guardar</button>
+        <button type="submit" className="btn btn-orange">Guardar Venta</button>
       </form>
     </div>
   );

@@ -38,12 +38,12 @@ function Navbar() {
           Proveedores
         </Link>
         <Link to="/dashboard" className={isActive('/dashboard') ? 'active' : ''}>
-          Dashboard
+          Dash Ventas
         </Link>
         <Link
           to="/proveedores-dashboard"
           className={isActive('/proveedores-dashboard') ? 'active' : ''}>
-          Proveedores
+          Dash Proveedores
         </Link>
 
         <button className="logout-btn" onClick={handleLogout}>
