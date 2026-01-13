@@ -54,6 +54,52 @@ button {
 }
 
 /* =========================
+   BALANCE DE CAJA BANNER
+========================= */
+.balance-caja-banner {
+    background: linear-gradient(135deg, var(--azul-fuerte), var(--azul-oscuro));
+    color: var(--blanco);
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 6px 20px rgba(20, 47, 79, 0.25);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-left: 6px solid var(--naranja);
+}
+
+.balance-label {
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.balance-monto {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--naranja);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+    .balance-caja-banner {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+        padding: 1rem;
+    }
+
+    .balance-label {
+        font-size: 1rem;
+    }
+
+    .balance-monto {
+        font-size: 1.5rem;
+    }
+}
+
+/* =========================
    NAVBAR
 ========================= */
 .navbar {

@@ -19,6 +19,19 @@ function Proveedores() {
   const token = localStorage.getItem('token');
 
   // =========================
+  // Inicializar "Adelanto caja"
+  // =========================
+  const inicializarAdelantoCaja = async () => {
+    try {
+      await axios.post('https://planillanegocio.onrender.com/api/proveedores/init-adelanto-caja', {}, {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+    } catch (err) {
+      console.error('Error al inicializar Adelanto caja:', err);
+    }
+  };
+
+  // =========================
   // Cargar proveedores
   // =========================
   const cargarProveedores = async () => {
@@ -34,7 +47,7 @@ function Proveedores() {
   };
 
   useEffect(() => {
-    cargarProveedores();
+    inicializarAdelantoCaja().then(() => cargarProveedores());
   }, []);
 
   // =========================
@@ -208,15 +221,24 @@ function Proveedores() {
           </select>
         </div>
 
-        {proveedorSeleccionado && (
-          <button
-            type="button"
-            className="btn btn-danger"
-            onClick={eliminarProveedor}
-          >
-            Eliminar proveedor
-          </button>
-        )}
+        {proveedorSeleccionado && (() => {
+          const proveedor = proveedores.find(p => p._id === proveedorSeleccionado);
+          const esAdelantoCaja = proveedor?.esAdelantoCaja || false;
+
+          if (esAdelantoCaja) {
+            return <p style={{ color: '#ff7f50', fontWeight: 'bold' }}>⚠️ Adelanto caja es un proveedor protegido y no se puede eliminar</p>;
+          }
+
+          return (
+            <button
+              type="button"
+              className="btn btn-danger"
+              onClick={eliminarProveedor}
+            >
+              Eliminar proveedor
+            </button>
+          );
+        })()}
 
         <div>
           <label>Nuevo proveedor</label>

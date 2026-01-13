@@ -10,6 +10,7 @@ function Dashboard() {
   const [hasta, setHasta] = useState('');
   const [datos, setDatos] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [balanceCaja, setBalanceCaja] = useState(null);
 
   const token = localStorage.getItem('token');
 
@@ -110,6 +111,21 @@ function Dashboard() {
   };
 
   // =========================
+  // CARGAR BALANCE DE CAJA
+  // =========================
+  const cargarBalanceCaja = async () => {
+    try {
+      const res = await axios.get(
+        'https://planillanegocio.onrender.com/api/dashboard/balance-caja',
+        { headers: { Authorization: `Bearer ${token}` } }
+      );
+      setBalanceCaja(res.data.balanceCaja);
+    } catch (err) {
+      console.error('Error al cargar balance de caja:', err);
+    }
+  };
+
+  // =========================
   // INIT
   // =========================
   useEffect(() => {
@@ -117,6 +133,7 @@ function Dashboard() {
     setDesde(hoyStr);
     setHasta(hoyStr);
     cargarDashboard(hoyStr, hoyStr);
+    cargarBalanceCaja();
   }, []);
 
   // =========================
@@ -250,6 +267,14 @@ function Dashboard() {
 
   return (
     <div className="container">
+      {/* BANNER BALANCE DE CAJA */}
+      {balanceCaja !== null && (
+        <div className="balance-caja-banner">
+          <span className="balance-label">💵 Balance de Caja Total:</span>
+          <span className="balance-monto">{formatoPesos(balanceCaja)}</span>
+        </div>
+      )}
+
       <h2>Dashboard Ventas</h2>
 
       <div className="dashboard-filtros">
