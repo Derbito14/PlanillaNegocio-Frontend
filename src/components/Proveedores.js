@@ -223,10 +223,10 @@ function Proveedores() {
 
         {proveedorSeleccionado && (() => {
           const proveedor = proveedores.find(p => p._id === proveedorSeleccionado);
-          const esAdelantoCaja = proveedor?.esAdelantoCaja || false;
+          const esProtegido = proveedor?.esAdelantoCaja || proveedor?.esProveedorProtegido || false;
 
-          if (esAdelantoCaja) {
-            return <p style={{ color: '#ff7f50', fontWeight: 'bold' }}>⚠️ Adelanto caja es un proveedor protegido y no se puede eliminar</p>;
+          if (esProtegido) {
+            return <p style={{ color: '#ff7f50', fontWeight: 'bold' }}>⚠️ {proveedor.nombre} es un proveedor protegido del sistema y no se puede eliminar</p>;
           }
 
           return (
